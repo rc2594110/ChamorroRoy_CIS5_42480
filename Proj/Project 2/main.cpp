@@ -21,6 +21,7 @@ using namespace std;//namespace I/O stream library created
 void ACHOICE();
 void BCHOICE(); 
 void CCHOICE();
+void DCHOICE();
 void showMenu();
 //Execution Begins Here!
 int main(int argc, char** argv)
@@ -31,7 +32,8 @@ int main(int argc, char** argv)
      Prob1_CHOICE = 1,
      Prob2_CHOICE = 2,
      Prob3_CHOICE = 3,
-     QUIT_CHOICE = 4;
+     Prob4_CHOICE = 4,
+     QUIT_CHOICE = 5;
      
  
  cout << "I want to play some number magic trick games\n";
@@ -73,6 +75,11 @@ int main(int argc, char** argv)
                 CCHOICE();
                  break;
             }
+            case Prob4_CHOICE:
+            { 
+                DCHOICE();
+                 break;
+            }
         }
     }
  } while (choice != QUIT_CHOICE);
@@ -90,8 +97,9 @@ int main(int argc, char** argv)
       << "PICK YOUR POISON\n"   
       << "1. Choice 1\n"
       << "2. Choice 2\n"
-      << "3. *Choice**3*\n"
-      << "4. Quit the Program\n\n"
+      << "3. Choice 3\n"
+      << "4. Challenge U CANT WIN!\n";
+      << "5. Quit the Program\n\n"
       << "Enter your choice: ";
  }
  
@@ -182,20 +190,84 @@ int main(int argc, char** argv)
  // to the number 100 by adding numbers but the program will always* 
  // win through the mathematical algorithm  ************************
  //*****************************************************************
+ void DCHOICE()
+ {
+     int a = 1, b, c, sum;
+     int nums [2][];
+     cout << "Welcome Choice 3\n******************\n";
+     cout << "This game will be a competition between you and me\n";
+     cout << "The ultimate goal of the game is to be the first to reach 100\n";
+     cout << "This will be achieved by alternatively adding numbers (1-10) to reach 100\n";
+     cout << "The first to get to 100, wins!!\n";
+     cout << "I will start out with the number " << a << endl;
+     cout << "Now it's your turn\n";
+     nums [1][0] = a;
+     sum = 1;
+     for (sum; sum <= 100;)
+     {
+         cout << "Enter a number: ";
+         cin >> b;
+         if (b > 10)
+         {
+             cout << "Invalid input!! Enter a number between 1 and 10: ";
+             cin >> b;
+         }
+         sum += b;
+         cout << "Our total is now at " << sum << endl;
+         c = 11 - b;
+         cout << "My next number is " << c << endl;
+         sum += c;
+         cout << "That takes our total to " << sum << endl;
+         for (int x = 0; ;x++)
+         {
+            nums [0][x] = b; 
+         }
+         for (int x = 1; ;x++)
+         {
+            nums [1][x] = c; 
+         }
+     }
+     if (sum == 100)
+     {
+         cout << "I win!! You had no chance against me!\n";
+     }
+     cout << "These were our moves\n";
+     cout << "\tX\t\t\tMoves\n";
+     cout << "\t********************\n";
+     cout << "You: ";
+     for (int d = 0; ;d++)
+     {
+         cout << nums [0][d] <<" ";
+     }
+     cout << endl;
+     cout << "Me: ";
+     for (int d = 0; ;d++)
+     {
+         cout << nums [1][d] <<" ";
+     }  
+ }   
+ 
+ //*****************************************************************
+ // Definition of function Choice 3 by which the program will race *
+ // to the number 100 by adding numbers but the program will always* 
+ // win through the mathematical algorithm  ************************
+ //*****************************************************************
  void CCHOICE()
  {
-     cout << "loser";
+     int a, b, c, d;
+     cout << "Welcome to Choice 3\n****************\n";
+     cout << "I will guess the number you are thinking using my magical powers!\n";
+     cout << "Press enter 1 to continue";
+     cin >> a;
+     cout << "In your head choose a number between 1 - 10 and multiply it by 2\n";
+     cout << "Press enter 1 to continue";
+     cin >> b;
+     cout << "Now take that new number and multiply it by 5\n";
+     cout << "Press enter 1 to continue";
+     cin >> c;
+     cout << "Now divide this number by your original number\n";
+      cout << "Press enter 1 to continue";
+     cin >> d;
+     cout << "Your number now is 3\n";
+     cout << "Right?";
  }
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
